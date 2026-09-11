@@ -1,40 +1,23 @@
-# GAN de Expansión de Imágenes
+# GAN Image Expansion (Image Outpainting)
 
-Raúl Baeza Osuna
-Lucas Trujillo Cubillo
-Iván Molina Abellán
+Team project exploring image outpainting with generative adversarial networks: the model receives only a small corner of an image and learns to generate the missing rest.
 
-## Descripción
+**Authors:** Raúl Baeza Osuna, Lucas Trujillo Cubillo and Iván Molina Abellán.
 
-Bienvenido al repositorio de nuestro emocionante proyecto de GAN de Expansión de Imágenes. Esta GAN única permite completar imágenes introduciendo solo un cuarto de la misma. ¡Descubre la magia de la expansión creativa con nuestra innovadora implementación de inteligencia artificial!
+## What it does
 
-## Funcionamiento
+- Uses the public [Landscape Pictures](https://www.kaggle.com/datasets/arnaud58/landscape-pictures) dataset from Kaggle, resized to 128x128 pixels.
+- During training, only a 64x64 corner of each image is shown to the generator, which must complete the rest of the picture coherently.
 
-La GAN se entrena utilizando [explicación de datos y método de entrenamiento]. En la fase de inferencia, simplemente proporciona un 1/4 de la imagen y deja que la IA haga su trabajo. Los resultados son asombrosos, pero estamos constantemente mejorando para abordar desafíos, especialmente en imágenes de baja resolución.
+## Repository contents
 
-## Características Clave
+- `GAN_de_Expansión_de_Imágenes_Primer_Modelo_GAN.ipynb` - first GAN model trained on the landscape dataset, plus a conditional-GAN experiment on CIFAR-10. At low resolution the network produced coherent completions, capturing both shape and color of the missing region.
+- `Segundo_Modelo_GAN.ipynb` - a second, more ambitious model working on full 128x128x3 inputs. Training did not meet expectations: the GAN failed to generate coherent images and showed training instability (including gradient explosion), limited by the available environment and time. The notebook documents the attempt and its conclusions.
 
-- **Expansión Creativa**: Completa imágenes de manera coherente y creativa.
-- **Adaptabilidad**: Funciona bien con imágenes de alta resolución, aunque estamos perfeccionando la resolución baja.
+## Tech stack
 
+Python, TensorFlow/Keras, OpenCV, scikit-learn, Matplotlib. Built to run on Google Colab with the Kaggle API for dataset download.
 
+## Status
 
-## Contribución
-
-¡Agradecemos contribuciones! Si deseas contribuir, sigue estos pasos:
-1. [Fork] el repositorio
-2. Crea una nueva rama (`git checkout -b feature/nueva-caracteristica`)
-3. Realiza cambios y haz commit (`git commit -am 'Añadir nueva característica'`)
-4. [Envía un pull request]
-
-## Problemas y Mejoras
-
-Si encuentras problemas o tienes ideas para mejorar el proyecto, por favor, abre un issue. Estamos ansiosos por recibir tu retroalimentación.
-
-## Agradecimientos
-
-Agradecemos a nuestro increíble equipo por su dedicación y esfuerzo en este proyecto. Juntos, hemos creado algo único.
-
-## Licencia
-
-Este proyecto está bajo la Licencia [nombre de la licencia].
+University coursework project, kept as an experiment log. No license specified yet.
